@@ -1,4 +1,6 @@
+import Dashboard from './components/Dashboard';
 import { Login } from './components/Login';
+import ProductList from './components/ProductList';
 import SignUp from './components/SignUp';
 import TestTable from './components/TestTable';
 
@@ -13,6 +15,7 @@ function App() {
       <Login />
       <TestTable />
       <SignUp/>
+      <Dashboard/>
     </div>
   );
 }
