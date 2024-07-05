@@ -5,6 +5,12 @@ import UserProducts from './pages/UserProducts';
 import { Login } from './components/Login';
 import MainNav from './components/MainNav';
 import SignUp from './components/SignUp';
+import Buy from './pages/Buy';
+import RentModal from './pages/RentModal';
+import Dashboard from './pages/Dashboard';
+import ConfirmBuy from './pages/ConfirmBuy';
+
+
 
 
 const router = createBrowserRouter([
@@ -28,6 +34,10 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/dashboard",
+        Component: Dashboard,
+      },
+      {
+        path: "/dashboard/products",
         Component: UserProducts,
       }
     ],
@@ -40,6 +50,19 @@ const router = createBrowserRouter([
     path: "/signup",
     Component:SignUp,
   },
+  {
+    path: "/buy",
+    Component: Buy,
+  },
+  {
+    path: "/rentmodal",
+    Component: RentModal,
+  },
+  {
+    path: "/confirmbuy",
+    Component: ConfirmBuy,
+  },
+ 
 ]);
 
 export default function App() {

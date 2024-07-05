@@ -8,9 +8,9 @@ const SignUp = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-lg mt-5">
-        <h2 className="text-2xl font-bold mb-6 text-center">Sign Up</h2>
+    <div className="min-h-screen flex items-center justify-center bg-white">
+      <div className="bg-white p-8 rounded shadow-md w-full max-w-lg mt-5 border border-black">
+        <h2 className="text-2xl font-bold mb-6 text-center">SIGN UP</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4 grid grid-cols-2 gap-4">
             <div>
@@ -102,7 +102,7 @@ const SignUp = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+            className="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
           >
             Register
           </button>
