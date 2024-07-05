@@ -1,23 +1,61 @@
-import Dashboard from './components/Dashboard';
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import AllProducts from './pages/AllProducts';
+import UserProducts from './pages/UserProducts';
 import { Login } from './components/Login';
-import ProductList from './components/ProductList';
+import MainNav from './components/MainNav';
 import SignUp from './components/SignUp';
-import TestTable from './components/TestTable';
 
-function App() {
-  const handleLogin = () => {
-    // Implement your login logic here
-    console.log('User logged in'); // For demonstration
-  };
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    Component: Layout,
+    children: [
+      {
+        path: "/",
+        Component: HomePage,
+      },
+      {
+        path: "/products",
+        Component: AllProducts,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    Component: Layout,
+    children: [
+      {
+        path: "/dashboard",
+        Component: UserProducts,
+      }
+    ],
+  },
+  {
+    path: "/login",
+    Component: Login,
+  },
+  {
+    path: "/signup",
+    Component:SignUp,
+  },
+]);
+
+export default function App() {
+  return <RouterProvider router={router} />;
+}
+
+export function Layout() {
   return (
     <div>
-      <Login />
-      <TestTable />
-      <SignUp/>
-      <Dashboard/>
+      <MainNav/>
+ 
+      <div className='min-h-screen mx-auto container'>
+        <Outlet />
+      </div>
     </div>
   );
 }
 
-export default App;
+

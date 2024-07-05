@@ -78,10 +78,10 @@ const EditProductForm: React.FC<EditProductFormProps> = ({ product, onSave, onCa
         />
       </div>
       <div className="flex justify-end">
-        <Button type="submit" className="bg-blue-500 text-white">
+        <Button type="submit" className="bg-green-500 text-white">
           Save
         </Button>
-        <Button onClick={onCancel} className="bg-gray-400 text-white ml-2">
+        <Button onClick={onCancel} className="bg-red-500 text-white ml-2">
           Cancel
         </Button>
       </div>

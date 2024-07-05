@@ -39,8 +39,8 @@ const Dashboard: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto">
-      <h1 className="text-3xl font-bold mb-8">Dashboard</h1>
+    <div className="container mx-auto mt-10">
+      <h1 className="text-3xl font-bold mb-8 text-center mt-5">Dashboard</h1>
       <ProductList products={products} onDelete={handleDelete} onEdit={handleEdit} />
       <AddProductForm onSave={handleSave} />
     </div>

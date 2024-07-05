@@ -41,7 +41,9 @@ const AddProductForm: React.FC<AddProductFormProps> = ({ onSave }) => {
 
   return (
     <>
-      <Button onClick={() => setShowModal(true)} className="bg-green-500 text-white mt-4">Add Product</Button>
+      <div className="flex justify-end">
+        <Button onClick={() => setShowModal(true)} className="bg-green-500 text-white p-1.5 m-0">Add Product</Button>
+      </div>
       <Modal show={showModal} onClose={handleCancel}>
         <div className="p-4">
           <h3 className="text-lg font-semibold mb-4">Add New Product</h3>
@@ -52,8 +54,8 @@ const AddProductForm: React.FC<AddProductFormProps> = ({ onSave }) => {
                 <TextInput id="name" name="name" value={newProduct.name} onChange={handleInputChange} required />
               </div>
               <div className="flex justify-end">
-                <Button onClick={handleCancel} className="mr-2 bg-gray-400 text-white">Cancel</Button>
-                <Button onClick={handleNextStep} className="bg-blue-500 text-white">Next</Button>
+                <Button onClick={handleCancel} className="mr-2 bg-red-500 text-white">Cancel</Button>
+                <Button onClick={handleNextStep} className="bg-green-500 text-white">Next</Button>
               </div>
             </>
           )}
@@ -66,12 +68,13 @@ const AddProductForm: React.FC<AddProductFormProps> = ({ onSave }) => {
                   <option value="Category A">Category A</option>
                   <option value="Category B">Category B</option>
                   <option value="Category C">Category C</option>
+                  <option value="Category C">Category D</option>
                   {/* Add more categories as needed */}
                 </Select>
               </div>
               <div className="flex justify-between">
-                <Button onClick={handlePreviousStep} className="bg-blue-500 text-white">Previous</Button>
-                <Button onClick={handleNextStep} className="bg-blue-500 text-white">Next</Button>
+                <Button onClick={handlePreviousStep} className="bg-red-500 text-white">Previous</Button>
+                <Button onClick={handleNextStep} className="bg-green-500 text-white">Next</Button>
               </div>
             </>
           )}
@@ -82,8 +85,8 @@ const AddProductForm: React.FC<AddProductFormProps> = ({ onSave }) => {
                 <TextInput id="description" name="description" value={newProduct.description} onChange={handleInputChange} required />
               </div>
               <div className="flex justify-between">
-                <Button onClick={handlePreviousStep} className="bg-blue-500 text-white">Previous</Button>
-                <Button onClick={handleNextStep} className="bg-blue-500 text-white">Next</Button>
+                <Button onClick={handlePreviousStep} className="bg-red-500 text-white">Previous</Button>
+                <Button onClick={handleNextStep} className="bg-green-500 text-white">Next</Button>
               </div>
             </>
           )}
@@ -98,8 +101,8 @@ const AddProductForm: React.FC<AddProductFormProps> = ({ onSave }) => {
                 <TextInput id="rentPerHour" name="rentPerHour" type="number" value={newProduct.rentPerHour} onChange={handleInputChange} required />
               </div>
               <div className="flex justify-between">
-                <Button onClick={handlePreviousStep} className="bg-blue-500 text-white">Previous</Button>
-                <Button onClick={handleSave} className="bg-blue-500 text-white">Save</Button>
+                <Button onClick={handlePreviousStep} className="bg-red-500 text-white">Previous</Button>
+                <Button onClick={handleSave} className="bg-green-500 text-white">Save</Button>
               </div>
             </>
           )}

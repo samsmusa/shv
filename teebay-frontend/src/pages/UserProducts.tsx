@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Card, Button, Modal } from 'flowbite-react';
-import PropTypes from 'prop-types';
-import EditProductForm from './EditProductForm'; // Adjust the path based on your project structure
+import EditProductForm from '../components/EditProductForm';
+import AddProductForm from '../components/AddProductForm';
+
 
 interface Product {
   id: number;
@@ -12,17 +13,28 @@ interface Product {
   rentPerHour: string;
 }
 
-interface ProductListProps {
-  products: Product[];
-  onDelete: (id: number) => void;
-  onEdit: (product: Product) => void;
+
+interface UserProductListProps {
 }
 
-const ProductList: React.FC<ProductListProps> = ({ products, onDelete, onEdit }) => {
+const UserProductList = () => {
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [productIdToDelete, setProductIdToDelete] = useState<number | null>(null);
   const [showEditModal, setShowEditModal] = useState(false);
   const [editedProduct, setEditedProduct] = useState<Product | null>(null);
+
+  const products = React.useMemo(()=>{
+    return Array(10).fill(1).map((p, index)=>{
+        return {
+            id: index,
+            name: 'string',
+description: 'string',
+category: 'string',
+price: 'string',
+rentPerHour: 'string',
+        }
+    })
+}, [])
 
   const handleDeleteClick = (productId: number) => {
     setProductIdToDelete(productId);
@@ -31,7 +43,7 @@ const ProductList: React.FC<ProductListProps> = ({ products, onDelete, onEdit })
 
   const handleConfirmDelete = () => {
     if (productIdToDelete !== null) {
-      onDelete(productIdToDelete);
+      // onDelete(productIdToDelete);
       setShowConfirmation(false);
       setProductIdToDelete(null);
     }
@@ -48,7 +60,7 @@ const ProductList: React.FC<ProductListProps> = ({ products, onDelete, onEdit })
   };
 
   const handleSaveEdit = (updatedProduct: Product) => {
-    onEdit(updatedProduct);
+    // onEdit(updatedProduct);
     setShowEditModal(false);
     setEditedProduct(null);
   };
@@ -60,14 +72,17 @@ const ProductList: React.FC<ProductListProps> = ({ products, onDelete, onEdit })
 
   return (
     <div className="container mx-auto mt-8">
-      <h2 className="text-2xl font-bold mb-4">Products Added by Users</h2>
+      <div className='flex justify-between my-2'>
+      <h2 className="text-2xl font-bold mb-4 text-center mt-8">My Products List</h2>
+      <AddProductForm onSave={()=>{}} />
+        </div>
       <div className="grid grid-cols-1 gap-6">
         {products.map((product) => (
           <Card key={product.id} className="relative p-4 bg-white shadow-md rounded-lg">
             <div className="flex justify-between items-center mb-2">
               <h3 className="text-lg font-semibold">{product.name}</h3>
-              <div>
-                <Button onClick={() => handleEditClick(product)} className="bg-blue-500 text-white mr-2">
+              <div className='flex gap-2'>
+                <Button onClick={() => handleEditClick(product)} className="bg-blue-500 text-white">
                   Edit
                 </Button>
                 <Button onClick={() => handleDeleteClick(product.id)} className="bg-red-500 text-white">
@@ -88,7 +103,7 @@ const ProductList: React.FC<ProductListProps> = ({ products, onDelete, onEdit })
           <h3 className="text-lg font-semibold mb-4">Confirm Deletion</h3>
           <p className="text-gray-700 mb-4">Are you sure you want to delete this product?</p>
           <div className="flex justify-end">
-            <Button onClick={handleCancelDelete} className="mr-2 bg-gray-400 text-white">
+            <Button onClick={handleCancelDelete} className="mr-2 bg-green-400 text-white">
               Cancel
             </Button>
             <Button onClick={handleConfirmDelete} color="red" className="bg-red-500 text-white">
@@ -115,10 +130,6 @@ const ProductList: React.FC<ProductListProps> = ({ products, onDelete, onEdit })
   );
 };
 
-ProductList.propTypes = {
-  products: PropTypes.array.isRequired,
-  onDelete: PropTypes.func.isRequired,
-  onEdit: PropTypes.func.isRequired,
-};
 
-export default ProductList;
+
+export default UserProductList;
