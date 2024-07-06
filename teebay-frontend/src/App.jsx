@@ -7,8 +7,9 @@ import MainNav from './components/MainNav';
 import SignUp from './components/SignUp';
 import Buy from './pages/Buy';
 import RentModal from './pages/RentModal';
-import Dashboard from './pages/Dashboard';
+import {Dashboard as pageDashboard} from './pages/Dashboard';
 import ConfirmBuy from './pages/ConfirmBuy';
+import Dashboard from './components/Dashboard';
 
 
 
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
         path: "/products",
         Component: AllProducts,
       },
+      {
+        path: "/product/:productId",
+        Component: Buy
+      }
     ],
   },
   {
@@ -34,12 +39,17 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/dashboard",
-        Component: Dashboard,
+        Component: pageDashboard,
       },
       {
         path: "/dashboard/products",
         Component: UserProducts,
-      }
+      },
+
+  {
+    path: "/dashboard/myproducts",
+    Component: Dashboard,
+  },
     ],
   },
   {
@@ -61,7 +71,7 @@ const router = createBrowserRouter([
   {
     path: "/confirmbuy",
     Component: ConfirmBuy,
-  },
+  }
  
 ]);
 

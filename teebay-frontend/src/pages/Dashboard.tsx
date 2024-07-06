@@ -1,7 +1,7 @@
 import React from 'react'
 import UserProductTab from '../components/UserProductTab'
 
-const Dashboard = () => {
+export const Dashboard = () => {
   return (
     <div>
         <UserProductTab/>
@@ -9,4 +9,3 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard

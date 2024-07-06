@@ -1,8 +1,8 @@
 // src/components/Dashboard.tsx
 
 import React, { useState } from 'react';
-import ProductList from './ProductList';
 import AddProductForm from './AddProductForm';
+import UserProductList from '../pages/UserProducts';
 
 interface Product {
   id: number;
@@ -41,7 +41,7 @@ const Dashboard: React.FC = () => {
   return (
     <div className="container mx-auto mt-10">
       <h1 className="text-3xl font-bold mb-8 text-center mt-5">Dashboard</h1>
-      <ProductList products={products} onDelete={handleDelete} onEdit={handleEdit} />
+      <UserProductList />
       <AddProductForm onSave={handleSave} />
     </div>
   );
