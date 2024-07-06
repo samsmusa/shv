@@ -41,8 +41,8 @@ const AddProductForm: React.FC<AddProductFormProps> = ({ onSave }) => {
 
   return (
     <>
-      <div className="flex justify-end">
-        <Button onClick={() => setShowModal(true)} className="bg-green-500 text-white p-1.5 m-0">Add Product</Button>
+      <div className="">
+        <Button onClick={() => setShowModal(true)} className="bg-green-500 text-white m-0">Add Product</Button>
       </div>
       <Modal show={showModal} onClose={handleCancel}>
         <div className="p-4">

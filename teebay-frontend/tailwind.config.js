@@ -1,15 +1,14 @@
-import flowbitePlugin from 'flowbite/plugin';
-
+import { content, plugin } from "flowbite-react/tailwind";
 export default {
   content: [
     './src/**/*.{js,jsx,ts,tsx}',
-    'node_modules/flowbite-react/lib/esm/**/*.js',
-    './node_modules/flowbite/**/*.js',
+    content(),
   ],
   theme: {
     extend: {},
   },
   plugins: [
-    flowbitePlugin,
+    plugin(),
   ],
 };
+

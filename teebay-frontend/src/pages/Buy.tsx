@@ -43,7 +43,7 @@ const Buy: React.FC<ProductProps> = ({
   };
   return (
     <div className="max-w-md mx-auto bg-white md:max-w-2xl my-4">
-      <div className="md:flex">
+      <div className="md:flex border border-black">
         <div className="w-full p-4">
           <h2 className="text-gray-900 font-bold text-2xl mb-2">{name}</h2>
           <p className="text-gray-700 font-semibold text-sm mb-1">{category}</p>
