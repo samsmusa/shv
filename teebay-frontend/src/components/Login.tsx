@@ -9,8 +9,8 @@ import {useNavigate} from "react-router-dom";
 
 export function Login() {
     const {user: loginUser, login} = useAuth();
-    const [token, setToken] = useLocalStorage("token", undefined)
-    const [user, setUser] = useLocalStorage("user", undefined)
+    const [token, setToken] = useLocalStorage("token")
+    const [user, setUser] = useLocalStorage("user")
     const navigate = useNavigate()
     const form = useForm()
 

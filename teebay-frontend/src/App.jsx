@@ -5,16 +5,15 @@ import {
     useNavigate
 } from 'react-router-dom';
 import AllProducts from './pages/AllProducts';
-import UserProducts from './pages/UserProducts';
 import {Login} from './components/Login';
 import MainNav from './components/MainNav';
 import SignUp from './components/SignUp';
 import Buy from './pages/Buy';
 import {Dashboard as PageDashboard} from './pages/Dashboard';
-import Dashboard from './components/Dashboard';
+import MyProducts from './components/MyProducts';
 import {HiChartPie, HiViewBoards} from "react-icons/hi"
 import {Sidebar} from "flowbite-react";
-import {AuthProvider} from "./hooks/useAuth";
+import {AuthProvider, useAuth} from "./hooks/useAuth";
 import {ProtectedRoute} from "./components/ProtectedRoute";
 
 export default function App() {
@@ -29,8 +28,7 @@ export default function App() {
                     <Route path="/dashboard"
                            element={<ProtectedRoute><DashboardLayout/></ProtectedRoute>}>
                         <Route index element={<PageDashboard/>}/>
-                        <Route path="/dashboard/products" element={<UserProducts/>}/>
-                        <Route path="/dashboard/myproducts" element={<Dashboard/>}/>
+                        <Route path="/dashboard/products" element={<MyProducts/>}/>
                     </Route>
                     <Route path="/login" element={<Login/>}/>
                     <Route path="/signup" element={<SignUp/>}/>
@@ -43,6 +41,7 @@ export default function App() {
 
 export function DashboardLayout() {
     const navigate = useNavigate()
+    const {user} = useAuth()
     return (
         <div>
             <MainNav/>
@@ -54,7 +53,7 @@ export function DashboardLayout() {
                             <Sidebar.Items>
                                 <Sidebar.ItemGroup>
                                     <Sidebar.Item icon={HiChartPie}>
-                                        Jone Doe
+                                        {user?.name}
                                     </Sidebar.Item>
 
                                 </Sidebar.ItemGroup>
